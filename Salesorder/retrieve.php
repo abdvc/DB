@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "PaintShop");  
+ $connect = mysqli_connect("localhost", "abd", "", "PaintShop");  
  $output = '';  
  $sql = "SELECT * FROM Order_13022 WHERE ShopID='".$_POST["ShopID"]."' ORDER BY OrderNo";  
  $sql1 = "SELECT * FROM Customer_13022 WHERE ShopID='".$_POST["ShopID"]."'";
