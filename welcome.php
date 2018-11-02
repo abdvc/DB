@@ -35,6 +35,9 @@
                     <li class="nav-item">
                       <a class="nav-link " href="Product/table.php">Product</a>
                     </li>
+		<li class="nav-item">
+                      <a class="nav-link " href="Salesorder/table.php">Salesorder</a>
+                    </li>
 
 		    
                   </ul></div>
