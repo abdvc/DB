@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "PaintShop");  
+ $connect = mysqli_connect("localhost", "abd", "", "PaintShop");  
  $res = mysqli_query($connect, "SELECT Price FROM PRODUCT_13022 WHERE PCode='".$_POST["PCode"]."'");
  $row = mysqli_fetch_array($res);
  $sql = "INSERT INTO Order_13022 VALUES('".$_POST["OrderNo"]."', '".$_POST["ShopID"]."', '".$_POST["Date"]."', '".$_POST["SalespersonID"]."', '".$_POST["PCode"]."', '".$_POST["Qty"]."', '".$row["Rate"]."', '".$_POST["Amount"]."')";  
