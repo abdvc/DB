@@ -15,7 +15,7 @@
 	<?php
 	$host = "localhost";
 	$db_name = "PaintShop";
-	$username = "root";
+	$username = "abd";
 	$password = "";
 	$con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
 	$stmt = $con->prepare("select ShopID from Customer_13022");
