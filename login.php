@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("config.php");
-session_start();
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: welcome.php");
@@ -14,16 +13,22 @@ if($_POST){
 
 	$sql = "SELECT * FROM User_13022 WHERE Username='$usr' AND Password='$pass'";
 	$result = $mysqli->query($sql);
+
 	if($result->num_rows == 1){
 		//session_register("usr");
          	//$_SESSION['login_user'] = $usr;
          	
 		$_SESSION["loggedin"] = true;
-                $_SESSION["Username"] = $usr; 
+                $_SESSION["Username"] = $usr;
+		$a = 1;
+		$sql2 = "UPDATE User_13022 SET Active='$a' WHERE Username='$usr'";
+		if ($mysqli->query($sql2) === TRUE) {
+		echo "Successful update";
+	} else { echo "update error";}
 
          	header("location: welcome.php");
 	} else {
-		$error = $result->num_rows;
+		$error = 'Invalid login or username';
 	}
 }
 ?>
