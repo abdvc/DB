@@ -1,6 +1,36 @@
 <html>
 <head><title>Users</title></head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../welcome.php" title="Homepage">My Paint shop</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="../Users/table.php">Users<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../Salesperson/table.php">Salespersons</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../Customer/table.php">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="../Product/table.php">Product</a>
+                    </li>
+
+		    
+                  </ul></div>
+			<div align='right'><form action='../logout.php' align='right'>
+			<input type="submit" value="Logout">
+		    </form></div>
+                
+              </nav>
+
 <div>
+<br><br>
 <?php
 // Include config file
 include("../config.php");
@@ -44,34 +74,13 @@ if($result = $mysqli->query($sql)){
                     
 // Close connection
 $mysqli->close();
-?>
-</div>
-
-
-
-<div class='container' align='center'><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
-	<p>Username: <br>
-	<input type='text' name='Username'></p>
-	<p>Password: <br>
-	<input type='password' name='Password'><br></p>
-	<p>Active: <br>
-	<input type='text' name='Active'><br></p>
-	<p>SalespersonID: <br>
-	<input type='text' name='SalespersonID' placeholder='0 if not a salesperson'><br></p>
-	<p><input type="submit" class="btn btn-primary" value="Submit">
-	<input type='button' value='Back' onclick='location.href="../welcome.php"' /></p>
-</form></div>
-
-<?php
-include("../config.php");
 
 if($_POST){
 	$usr = $_POST['Username'];
 	$pass = $_POST['Password'];
-	$active = $_POST['Active'];
 	$spid = $_POST['SalespersonID'];
 
-	$sql = "INSERT INTO User_13022 (Username, Password, Active, SalespersonID) VALUES ('$usr','$pass','$active', '$spid')";
+	$sql = "INSERT INTO User_13022 (Username, Password, SalespersonID) VALUES ('$usr','$pass','$spid')";
 
 	if ($mysqli->query($sql) === TRUE) {
 		echo "New Record added";
@@ -81,11 +90,25 @@ if($_POST){
 	
 	$mysqli->close();
 }
-
-
 ?>
+</div>
 
+<br><br>
 
+<div class='container' align='center'><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
+	<p>Username: <br>
+	<input type='text' name='Username'></p>
+	<p>Password: <br>
+	<input type='password' name='Password'><br></p>
+	<p>SalespersonID: <br>
+	<input type='text' name='SalespersonID' placeholder='0 if not a salesperson'><br></p>
+	<p><input type="submit" class="btn btn-primary" value="Submit">
+	<input type='button' value='Back' onclick='location.href="../welcome.php"' /></p>
+</form></div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</body>
 <style>
 table, th {
 
@@ -111,7 +134,10 @@ th {
 td{
 	background-color: #FFA07A;
 }
-
+navbar {
+	font-family: verdana;
+    height: 100%;
+}
 </style>
 </html>
 
