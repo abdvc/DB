@@ -14,9 +14,7 @@
 
 <body>
 
-
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="welcome.php" title="Homepage">My Paint shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -35,8 +33,11 @@
                     <li class="nav-item">
                       <a class="nav-link " href="Product/table.php">Product</a>
                     </li>
-		<li class="nav-item">
-                      <a class="nav-link " href="Salesorder/table.php">Salesorder</a>
+		    <li class="nav-item">
+                      <a class="nav-link " href="Survey/survey.php">Survey</a>
+                    </li>
+		    <li class="nav-item">
+                      <a class="nav-link " href="dashboard.php">Dashboard</a>
                     </li>
 
 		    
@@ -45,9 +46,9 @@
 			<input type="submit" value="Logout">
 		    </form></div>
                 
-              </nav>
+</nav>
 
-
+	
 
 
 
@@ -80,22 +81,12 @@
    
 </body>
 <style>
-
-
 body,html {
 	font-family: verdana;
     height: 100%;
     background-image: url('paint.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    
-}
-.container{
-    display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  justify-content: space-between;
 }
 .btn{
     opacity: 0.5 !important;

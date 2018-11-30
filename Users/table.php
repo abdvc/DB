@@ -20,6 +20,12 @@
                     <li class="nav-item">
                       <a class="nav-link " href="../Product/table.php">Product</a>
                     </li>
+		    <li class="nav-item">
+                      <a class="nav-link " href="../Survey/survey.php">Survey</a>
+                    </li>
+		    <li class="nav-item">
+                      <a class="nav-link " href="../dashboard.php">Dashboard</a>
+                    </li>
 
 		    
                   </ul></div>
@@ -27,7 +33,7 @@
 			<input type="submit" value="Logout">
 		    </form></div>
                 
-              </nav>
+</nav>
 
 <div>
 <br><br>
@@ -35,7 +41,7 @@
 // Include config file
 include("../config.php");
 include("../session.php");
-                    
+$error = '';
 // Attempt select query execution
 $sql = "SELECT * FROM User_13022";
 if($result = $mysqli->query($sql)){
@@ -75,22 +81,8 @@ if($result = $mysqli->query($sql)){
 // Close connection
 $mysqli->close();
 
-if($_POST){
-	$usr = $_POST['Username'];
-	$pass = $_POST['Password'];
-	$spid = $_POST['SalespersonID'];
-
-	$sql = "INSERT INTO User_13022 (Username, Password, SalespersonID) VALUES ('$usr','$pass','$spid')";
-
-	if ($mysqli->query($sql) === TRUE) {
-		echo "New Record added";
-	} else {
-		echo "Error " . $sql . ' ' . $mysqli->connect_error;
-	}
-	
-	$mysqli->close();
-}
 ?>
+
 </div>
 
 <br><br>
@@ -106,6 +98,30 @@ if($_POST){
 	<input type='button' value='Back' onclick='location.href="../welcome.php"' /></p>
 </form></div>
 
+<?php
+include("../config.php");
+
+if($_POST){
+	$usr = $_POST['Username'];
+	$pass = $_POST['Password'];
+	$spid = $_POST['SalespersonID'];
+	
+	if ($usr!='' || $pass!='' || $spid!='') {
+		$sql = "INSERT INTO User_13022 (Username, Password, SalespersonID) VALUES ('$usr','$pass','$spid')";
+
+		if ($mysqli->query($sql) === TRUE) {
+			echo "New Record added";
+		} else {
+			echo "Error " . $sql . ' ' . $mysqli->connect_error;
+		}
+		
+		$mysqli->close();
+	} else {
+		$error = "Error : Enter fields";
+	}
+}
+?>
+<div style = "font-size:14px; color:#cc0000; margin-top:10px" align='center'><?php echo $error; ?></div>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 </body>
